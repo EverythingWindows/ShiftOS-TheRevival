@@ -68,7 +68,7 @@ Partial Class Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 16F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(344, 146)
+        ClientSize = New Size(344, 156)
         Controls.Add(Button2)
         Controls.Add(Button1)
         Controls.Add(Label2)
