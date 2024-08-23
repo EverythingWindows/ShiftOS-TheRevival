@@ -29,13 +29,14 @@ Partial Class MainMenu
         Label5 = New Label()
         Label6 = New Label()
         Label7 = New Label()
+        lbl_Build = New Label()
         SuspendLayout()
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.Location = New Point(370, 32)
+        Label1.Location = New Point(370, 34)
         Label1.Name = "Label1"
         Label1.Size = New Size(113, 37)
         Label1.TabIndex = 0
@@ -101,11 +102,21 @@ Partial Class MainMenu
         Label7.TabIndex = 2
         Label7.Text = "BANNER!"
         ' 
+        ' lbl_Build
+        ' 
+        lbl_Build.AutoSize = True
+        lbl_Build.Location = New Point(12, 408)
+        lbl_Build.Name = "lbl_Build"
+        lbl_Build.Size = New Size(37, 16)
+        lbl_Build.TabIndex = 3
+        lbl_Build.Text = "build "
+        ' 
         ' MainMenu
         ' 
         AutoScaleDimensions = New SizeF(7F, 16F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(695, 433)
+        Controls.Add(lbl_Build)
         Controls.Add(Label7)
         Controls.Add(Label6)
         Controls.Add(Label5)
@@ -130,4 +141,5 @@ Partial Class MainMenu
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
+    Friend WithEvents lbl_Build As Label
 End Class

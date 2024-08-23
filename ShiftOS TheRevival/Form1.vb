@@ -6,4 +6,8 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         MainMenu.Show()
     End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Terminal.Show()
+    End Sub
 End Class

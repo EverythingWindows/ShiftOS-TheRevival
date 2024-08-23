@@ -26,6 +26,7 @@ Partial Class Form1
         Label2 = New Label()
         Button1 = New Button()
         Button2 = New Button()
+        Button3 = New Button()
         SuspendLayout()
         ' 
         ' Label1
@@ -64,11 +65,21 @@ Partial Class Form1
         Button2.Text = "Future Menu"
         Button2.UseVisualStyleBackColor = True
         ' 
+        ' Button3
+        ' 
+        Button3.Location = New Point(25, 142)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(135, 23)
+        Button3.TabIndex = 3
+        Button3.Text = "free roam terminal"
+        Button3.UseVisualStyleBackColor = True
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 16F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(344, 156)
+        ClientSize = New Size(344, 185)
+        Controls.Add(Button3)
         Controls.Add(Button2)
         Controls.Add(Button1)
         Controls.Add(Label2)
@@ -83,5 +94,6 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 
 End Class
