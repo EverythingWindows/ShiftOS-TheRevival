@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Terminal_Main
+Partial Class Console_Main
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -58,7 +58,7 @@ Partial Class Terminal_Main
         b_ToggleFS.Text = "toggle fs"
         b_ToggleFS.UseVisualStyleBackColor = True
         ' 
-        ' Terminal_Main
+        ' Console_Main
         ' 
         AutoScaleDimensions = New SizeF(7F, 16F)
         AutoScaleMode = AutoScaleMode.Font
@@ -66,7 +66,7 @@ Partial Class Terminal_Main
         Controls.Add(p_Debug)
         Controls.Add(rt_maintext)
         FormBorderStyle = FormBorderStyle.FixedSingle
-        Name = "Terminal_Main"
+        Name = "Console_Main"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Terminal"
         p_Debug.ResumeLayout(False)
