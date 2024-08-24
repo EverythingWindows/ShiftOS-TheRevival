@@ -38,21 +38,27 @@ Public Class Form2
             For V As Integer = 1 To 1000
                 ProgressBar1.Value = V
                 If V = 1000 Then
-                    StopThread = True
+                    StopThreads()
                 End If
             Next
         End While
     End Sub
 
     Private Sub l_Increment()
-        For V As Integer = 1 To 1000
-            Select Case V
-                Case 100
-                    Label1.Text = "Finished!"
-                    StopThread = True
-                Case Else
-                    Label1.Text = V
-            End Select
-        Next
+        While Not StopThread
+            For V As Integer = 1 To 1000
+                Select Case V
+                    Case 1000
+                        Label1.Text = "Finished!"
+                        StopThreads()
+                    Case Else
+                        Label1.Text = V
+                End Select
+            Next
+        End While
+    End Sub
+
+    Private Sub StopThreads()
+        StopThread = True
     End Sub
 End Class
