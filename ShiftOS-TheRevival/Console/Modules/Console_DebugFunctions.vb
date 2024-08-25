@@ -6,6 +6,9 @@
         ' or headless fullscreen
 
         If Console_IsFullscreen = False Then
+            If Console_Main.WindowState = FormWindowState.Maximized Then
+                Console_Main.WindowState = FormWindowState.Normal
+            End If
             Console_Main.FormBorderStyle = FormBorderStyle.None
             Console_Main.WindowState = FormWindowState.Maximized
             Console_IsFullscreen = True

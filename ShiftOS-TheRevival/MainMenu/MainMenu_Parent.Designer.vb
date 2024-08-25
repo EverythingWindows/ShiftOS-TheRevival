@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class MainMenu
+Partial Class MainMenu_Parent
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -111,7 +111,7 @@ Partial Class MainMenu
         lbl_Build.TabIndex = 3
         lbl_Build.Text = "build "
         ' 
-        ' MainMenu
+        ' MainMenu_Parent
         ' 
         AutoScaleDimensions = New SizeF(7F, 16F)
         AutoScaleMode = AutoScaleMode.Font
@@ -126,9 +126,10 @@ Partial Class MainMenu
         Controls.Add(Label1)
         FormBorderStyle = FormBorderStyle.FixedSingle
         MaximizeBox = False
-        Name = "MainMenu"
+        Name = "MainMenu_Parent"
         ShowIcon = False
         ShowInTaskbar = False
+        StartPosition = FormStartPosition.CenterScreen
         Text = "MainMenu"
         ResumeLayout(False)
         PerformLayout()

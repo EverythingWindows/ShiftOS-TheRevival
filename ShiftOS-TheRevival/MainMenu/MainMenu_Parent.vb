@@ -1,4 +1,4 @@
-﻿Public Class MainMenu
+﻿Public Class MainMenu_Parent
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lbl_Build.Text = lbl_Build.Text & My.Application.Info.Version.ToString
     End Sub
@@ -19,6 +19,10 @@
         ' Looking for better code solution
         Dim WhichLabel As Label = CType(sender, Label)
         WhichLabel.Font = New Font("Segoe UI", 11)
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+        MainMenu_Settings.ShowDialog()
     End Sub
 
     'Private Sub MouseEnter_2(sender As Object, e As EventArgs) Handles Label2.MouseEnter
