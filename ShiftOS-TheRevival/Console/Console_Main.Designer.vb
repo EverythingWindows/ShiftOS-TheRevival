@@ -24,6 +24,9 @@ Partial Class Console_Main
     Private Sub InitializeComponent()
         rt_maintext = New RichTextBox()
         p_Debug = New Panel()
+        ComboBox2 = New ComboBox()
+        ComboBox1 = New ComboBox()
+        b_MultiLangTest = New Button()
         b_ToggleFS = New Button()
         rt_header = New RichTextBox()
         rt_footer = New RichTextBox()
@@ -45,11 +48,41 @@ Partial Class Console_Main
         ' 
         ' p_Debug
         ' 
+        p_Debug.Controls.Add(ComboBox2)
+        p_Debug.Controls.Add(ComboBox1)
+        p_Debug.Controls.Add(b_MultiLangTest)
         p_Debug.Controls.Add(b_ToggleFS)
         p_Debug.Location = New Point(12, 53)
         p_Debug.Name = "p_Debug"
-        p_Debug.Size = New Size(200, 100)
+        p_Debug.Size = New Size(315, 100)
         p_Debug.TabIndex = 1
+        ' 
+        ' ComboBox2
+        ' 
+        ComboBox2.FormattingEnabled = True
+        ComboBox2.Items.AddRange(New Object() {"11", "12", "14", "16", "18", "24"})
+        ComboBox2.Location = New Point(132, 34)
+        ComboBox2.Name = "ComboBox2"
+        ComboBox2.Size = New Size(65, 24)
+        ComboBox2.TabIndex = 2
+        ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Items.AddRange(New Object() {"Consolas", "Segoe UI", "Calibri", "Courier New"})
+        ComboBox1.Location = New Point(5, 34)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(121, 24)
+        ComboBox1.TabIndex = 1
+        ' 
+        ' b_MultiLangTest
+        ' 
+        b_MultiLangTest.Location = New Point(5, 64)
+        b_MultiLangTest.Name = "b_MultiLangTest"
+        b_MultiLangTest.Size = New Size(121, 23)
+        b_MultiLangTest.TabIndex = 0
+        b_MultiLangTest.Text = "multilang test"
+        b_MultiLangTest.UseVisualStyleBackColor = True
         ' 
         ' b_ToggleFS
         ' 
@@ -108,4 +141,7 @@ Partial Class Console_Main
     Friend WithEvents b_ToggleFS As Button
     Friend WithEvents rt_header As RichTextBox
     Friend WithEvents rt_footer As RichTextBox
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents b_MultiLangTest As Button
 End Class
