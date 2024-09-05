@@ -25,6 +25,10 @@
         MainMenu_Settings.ShowDialog()
     End Sub
 
+    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
+        Close()
+    End Sub
+
     'Private Sub MouseEnter_2(sender As Object, e As EventArgs) Handles Label2.MouseEnter
 
     'End Sub

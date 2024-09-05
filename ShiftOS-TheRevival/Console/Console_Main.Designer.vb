@@ -114,6 +114,7 @@ Partial Class Console_Main
         rt_header.ForeColor = Color.Black
         rt_header.Location = New Point(0, 0)
         rt_header.Name = "rt_header"
+        rt_header.ScrollBars = RichTextBoxScrollBars.None
         rt_header.Size = New Size(800, 16)
         rt_header.TabIndex = 0
         rt_header.Text = ""
@@ -127,6 +128,7 @@ Partial Class Console_Main
         rt_footer.ForeColor = Color.Black
         rt_footer.Location = New Point(0, 434)
         rt_footer.Name = "rt_footer"
+        rt_footer.ScrollBars = RichTextBoxScrollBars.None
         rt_footer.Size = New Size(800, 16)
         rt_footer.TabIndex = 2
         rt_footer.Text = ""
