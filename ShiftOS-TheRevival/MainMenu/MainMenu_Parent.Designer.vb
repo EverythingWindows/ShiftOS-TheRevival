@@ -36,6 +36,7 @@ Partial Class MainMenu_Parent
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.ForeColor = Color.White
         Label1.Location = New Point(370, 34)
         Label1.Name = "Label1"
         Label1.Size = New Size(113, 37)
@@ -46,6 +47,7 @@ Partial Class MainMenu_Parent
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Segoe UI Variable Text", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        Label2.ForeColor = Color.White
         Label2.Location = New Point(370, 109)
         Label2.Name = "Label2"
         Label2.Size = New Size(83, 20)
@@ -56,6 +58,7 @@ Partial Class MainMenu_Parent
         ' 
         Label3.AutoSize = True
         Label3.Font = New Font("Segoe UI Variable Text", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        Label3.ForeColor = Color.White
         Label3.Location = New Point(370, 159)
         Label3.Name = "Label3"
         Label3.Size = New Size(85, 20)
@@ -66,6 +69,7 @@ Partial Class MainMenu_Parent
         ' 
         Label4.AutoSize = True
         Label4.Font = New Font("Segoe UI Variable Text", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        Label4.ForeColor = Color.White
         Label4.Location = New Point(370, 210)
         Label4.Name = "Label4"
         Label4.Size = New Size(62, 20)
@@ -76,6 +80,7 @@ Partial Class MainMenu_Parent
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Segoe UI Variable Text", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        Label5.ForeColor = Color.White
         Label5.Location = New Point(370, 262)
         Label5.Name = "Label5"
         Label5.Size = New Size(50, 20)
@@ -86,6 +91,7 @@ Partial Class MainMenu_Parent
         ' 
         Label6.AutoSize = True
         Label6.Font = New Font("Segoe UI Variable Text", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        Label6.ForeColor = Color.White
         Label6.Location = New Point(370, 315)
         Label6.Name = "Label6"
         Label6.Size = New Size(33, 20)
@@ -96,6 +102,7 @@ Partial Class MainMenu_Parent
         ' 
         Label7.AutoSize = True
         Label7.Font = New Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point)
+        Label7.ForeColor = Color.White
         Label7.Location = New Point(86, 174)
         Label7.Name = "Label7"
         Label7.Size = New Size(151, 45)
@@ -105,6 +112,7 @@ Partial Class MainMenu_Parent
         ' lbl_Build
         ' 
         lbl_Build.AutoSize = True
+        lbl_Build.ForeColor = Color.White
         lbl_Build.Location = New Point(12, 408)
         lbl_Build.Name = "lbl_Build"
         lbl_Build.Size = New Size(37, 16)
@@ -115,6 +123,7 @@ Partial Class MainMenu_Parent
         ' 
         AutoScaleDimensions = New SizeF(7F, 16F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.Black
         ClientSize = New Size(695, 433)
         Controls.Add(lbl_Build)
         Controls.Add(Label7)

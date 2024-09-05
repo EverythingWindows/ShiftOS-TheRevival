@@ -18,4 +18,20 @@
             Console_IsFullscreen = False
         End If
     End Sub
+
+    Public Sub C_MultiLangTest()
+        ' Trying to implement what type of language that should be
+        ' displayed when the string trigger is executed
+        ' Only to know if the string will use the correct language
+        ' according to the GameLang property
+
+        Select Case Global_GameLang
+            Case "en"
+                Console_NewLine(String.Format("This terminal is in {0}", My.Resources.en.Debug_MultiLangTest), "main")
+            Case "id"
+                Console_NewLine(String.Format("Terminal ini tersedia dalam {0}", My.Resources.id.Debug_MultiLangTest), "main")
+            Case Else
+
+        End Select
+    End Sub
 End Module

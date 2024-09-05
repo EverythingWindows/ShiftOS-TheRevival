@@ -25,6 +25,7 @@ Partial Class Console_Main
         rt_maintext = New RichTextBox()
         p_Debug = New Panel()
         ComboBox2 = New ComboBox()
+        cb_Lang = New ComboBox()
         ComboBox1 = New ComboBox()
         b_MultiLangTest = New Button()
         b_ToggleFS = New Button()
@@ -48,13 +49,15 @@ Partial Class Console_Main
         ' 
         ' p_Debug
         ' 
+        p_Debug.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         p_Debug.Controls.Add(ComboBox2)
+        p_Debug.Controls.Add(cb_Lang)
         p_Debug.Controls.Add(ComboBox1)
         p_Debug.Controls.Add(b_MultiLangTest)
         p_Debug.Controls.Add(b_ToggleFS)
-        p_Debug.Location = New Point(12, 53)
+        p_Debug.Location = New Point(446, 49)
         p_Debug.Name = "p_Debug"
-        p_Debug.Size = New Size(315, 100)
+        p_Debug.Size = New Size(342, 212)
         p_Debug.TabIndex = 1
         ' 
         ' ComboBox2
@@ -65,6 +68,15 @@ Partial Class Console_Main
         ComboBox2.Name = "ComboBox2"
         ComboBox2.Size = New Size(65, 24)
         ComboBox2.TabIndex = 2
+        ' 
+        ' cb_Lang
+        ' 
+        cb_Lang.FormattingEnabled = True
+        cb_Lang.Items.AddRange(New Object() {"en", "id"})
+        cb_Lang.Location = New Point(5, 64)
+        cb_Lang.Name = "cb_Lang"
+        cb_Lang.Size = New Size(178, 24)
+        cb_Lang.TabIndex = 1
         ' 
         ' ComboBox1
         ' 
@@ -77,7 +89,7 @@ Partial Class Console_Main
         ' 
         ' b_MultiLangTest
         ' 
-        b_MultiLangTest.Location = New Point(5, 64)
+        b_MultiLangTest.Location = New Point(189, 64)
         b_MultiLangTest.Name = "b_MultiLangTest"
         b_MultiLangTest.Size = New Size(121, 23)
         b_MultiLangTest.TabIndex = 0
@@ -144,4 +156,5 @@ Partial Class Console_Main
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents b_MultiLangTest As Button
+    Friend WithEvents cb_Lang As ComboBox
 End Class

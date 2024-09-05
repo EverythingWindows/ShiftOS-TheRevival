@@ -1,9 +1,5 @@
 ﻿Public Class Console_Main
 
-    Public C_TextSize As Integer
-    Public C_TextStyle As FontFamily
-    Public C_TextStyleSelected As FontFamily
-
     Private Sub ToggleFS() Handles b_ToggleFS.Click
         ' To test Console to function in Fullscreen or Windowed Mode
         ' Still in testing, since Terminal still needs to be in fullscreen anyway
@@ -18,7 +14,7 @@
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-        Console_Typeface.ChangeFace(ComboBox1.SelectedText, Nothing)
+        ChangeFace(ComboBox1.SelectedText, Nothing)
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
@@ -28,6 +24,8 @@
     Private Sub b_MultiLangTest_Click(sender As Object, e As EventArgs) Handles b_MultiLangTest.Click
         ' This is to test Multilanguage support using strings available in the
         ' resource directory. I am planning to do expand the support in the future
-        Console_NewLine(String.Format("This terminal is in {0}", My.Resources.id.Debug_MultiLangTest), "main")
+        'Console_NewLine(String.Format("This terminal is in {0}", My.Resources.id.Debug_MultiLangTest), "main")
+        Global_GameLang = cb_Lang.SelectedItem
+        C_MultiLangTest()
     End Sub
 End Class
