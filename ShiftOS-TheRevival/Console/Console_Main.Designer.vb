@@ -31,6 +31,7 @@ Partial Class Console_Main
         b_ToggleFS = New Button()
         rt_header = New RichTextBox()
         rt_footer = New RichTextBox()
+        Button1 = New Button()
         p_Debug.SuspendLayout()
         SuspendLayout()
         ' 
@@ -50,6 +51,7 @@ Partial Class Console_Main
         ' p_Debug
         ' 
         p_Debug.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        p_Debug.Controls.Add(Button1)
         p_Debug.Controls.Add(ComboBox2)
         p_Debug.Controls.Add(cb_Lang)
         p_Debug.Controls.Add(ComboBox1)
@@ -133,6 +135,15 @@ Partial Class Console_Main
         rt_footer.TabIndex = 2
         rt_footer.Text = ""
         ' 
+        ' Button1
+        ' 
+        Button1.Location = New Point(5, 94)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(121, 23)
+        Button1.TabIndex = 3
+        Button1.Text = "multicolor text"
+        Button1.UseVisualStyleBackColor = True
+        ' 
         ' Console_Main
         ' 
         AutoScaleDimensions = New SizeF(7F, 16F)
@@ -159,4 +170,5 @@ Partial Class Console_Main
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents b_MultiLangTest As Button
     Friend WithEvents cb_Lang As ComboBox
+    Friend WithEvents Button1 As Button
 End Class

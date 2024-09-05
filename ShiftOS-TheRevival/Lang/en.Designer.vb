@@ -72,5 +72,59 @@ Namespace My.Resources
                 Return ResourceManager.GetString("Debug_MultiLangTest", resourceCulture)
             End Get
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Display information about this game.
+        '''</summary>
+        Friend Shared ReadOnly Property MainMenu_About() As String
+            Get
+                Return ResourceManager.GetString("MainMenu_About", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Close the game.
+        '''</summary>
+        Friend Shared ReadOnly Property MainMenu_Exit() As String
+            Get
+                Return ResourceManager.GetString("MainMenu_Exit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Move your mouse to any item to see its description.
+        '''</summary>
+        Friend Shared ReadOnly Property MainMenu_ItemDescBlank() As String
+            Get
+                Return ResourceManager.GetString("MainMenu_ItemDescBlank", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Load the last game session played.
+        '''</summary>
+        Friend Shared ReadOnly Property MainMenu_LoadGame() As String
+            Get
+                Return ResourceManager.GetString("MainMenu_LoadGame", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Change the behaviour of the game.
+        '''</summary>
+        Friend Shared ReadOnly Property MainMenu_Settings() As String
+            Get
+                Return ResourceManager.GetString("MainMenu_Settings", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Start a new or existing game session.
+        '''</summary>
+        Friend Shared ReadOnly Property MainMenu_StartGame() As String
+            Get
+                Return ResourceManager.GetString("MainMenu_StartGame", resourceCulture)
+            End Get
+        End Property
     End Class
 End Namespace

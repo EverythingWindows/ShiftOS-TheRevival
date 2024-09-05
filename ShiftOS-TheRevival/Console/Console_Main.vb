@@ -24,7 +24,6 @@
     Private Sub b_MultiLangTest_Click(sender As Object, e As EventArgs) Handles b_MultiLangTest.Click
         ' This is to test Multilanguage support using strings available in the
         ' resource directory. I am planning to do expand the support in the future
-        'Console_NewLine(String.Format("This terminal is in {0}", My.Resources.id.Debug_MultiLangTest), "main")
         Global_GameLang = cb_Lang.SelectedItem
         C_MultiLangTest()
     End Sub

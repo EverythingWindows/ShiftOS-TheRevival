@@ -120,4 +120,22 @@
   <data name="Debug_MultiLangTest" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="MainMenu_About" xml:space="preserve">
+    <value>Display information about this game</value>
+  </data>
+  <data name="MainMenu_Exit" xml:space="preserve">
+    <value>Close the game</value>
+  </data>
+  <data name="MainMenu_ItemDescBlank" xml:space="preserve">
+    <value>Move your mouse to any item to see its description</value>
+  </data>
+  <data name="MainMenu_LoadGame" xml:space="preserve">
+    <value>Load the last game session played</value>
+  </data>
+  <data name="MainMenu_Settings" xml:space="preserve">
+    <value>Change the behaviour of the game</value>
+  </data>
+  <data name="MainMenu_StartGame" xml:space="preserve">
+    <value>Start a new or existing game session</value>
+  </data>
 </root>

@@ -72,5 +72,59 @@ Namespace My.Resources
                 Return ResourceManager.GetString("Debug_MultiLangTest", resourceCulture)
             End Get
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Menampilkan informasi terkait dengan game ini.
+        '''</summary>
+        Friend Shared ReadOnly Property MainMenu_About() As String
+            Get
+                Return ResourceManager.GetString("MainMenu_About", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Menutup game ini.
+        '''</summary>
+        Friend Shared ReadOnly Property MainMenu_Exit() As String
+            Get
+                Return ResourceManager.GetString("MainMenu_Exit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pindahkan tetikus anda menuju sebuah item untuk mengetahui deskripsinya.
+        '''</summary>
+        Friend Shared ReadOnly Property MainMenu_ItemDescBlank() As String
+            Get
+                Return ResourceManager.GetString("MainMenu_ItemDescBlank", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Memuat sesi game terakhir yang dimainkan.
+        '''</summary>
+        Friend Shared ReadOnly Property MainMenu_LoadGame() As String
+            Get
+                Return ResourceManager.GetString("MainMenu_LoadGame", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Ubah tindakan game.
+        '''</summary>
+        Friend Shared ReadOnly Property MainMenu_Settings() As String
+            Get
+                Return ResourceManager.GetString("MainMenu_Settings", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Memulai sesi game baru atau yang sudah ada.
+        '''</summary>
+        Friend Shared ReadOnly Property MainMenu_StartGame() As String
+            Get
+                Return ResourceManager.GetString("MainMenu_StartGame", resourceCulture)
+            End Get
+        End Property
     End Class
 End Namespace
