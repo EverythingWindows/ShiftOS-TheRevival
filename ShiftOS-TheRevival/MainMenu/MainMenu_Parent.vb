@@ -1,6 +1,7 @@
 ﻿Public Class MainMenu_Parent
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lbl_Build.Text = lbl_Build.Text & My.Application.Info.Version.ToString
+        ' lbl_Build.Text = lbl_Build.Text & My.Application.Info.Version.ToString
+        lbl_Build.Text += My.Application.Info.Version.ToString
     End Sub
 
     Private Sub Label2_MouseEnter(sender As Object, e As EventArgs) Handles Label2.MouseEnter, Label3.MouseEnter, Label4.MouseEnter, Label5.MouseEnter, Label6.MouseEnter
