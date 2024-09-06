@@ -63,31 +63,62 @@ Module Console_Typepaint
         Select Case Type
             Case 0
                 ' Clear All
-                Console_Main.rt_header.Text = Nothing
-                Console_Main.rt_maintext.Text = Nothing
-                Console_Main.rt_footer.Text = Nothing
+                Console_Main.rt_header.SelectionStart = Console_Main.rt_header.Text.Length
+                Console_Main.rt_header.ScrollToCaret()
+                Console_Main.rt_maintext.SelectionStart = Console_Main.rt_maintext.Text.Length
+                Console_Main.rt_maintext.ScrollToCaret()
+                Console_Main.rt_footer.SelectionStart = Console_Main.rt_footer.Text.Length
+                Console_Main.rt_footer.ScrollToCaret()
             Case 1
                 ' Clear just main
                 Console_Main.rt_maintext.SelectionStart = Console_Main.rt_maintext.Text.Length
                 Console_Main.rt_maintext.ScrollToCaret()
             Case 2
                 ' Clear just header
-                Console_Main.rt_header.Text = Nothing
+                Console_Main.rt_header.SelectionStart = Console_Main.rt_header.Text.Length
+                Console_Main.rt_header.ScrollToCaret()
             Case 3
                 ' Clear just footer
-                Console_Main.rt_footer.Text = Nothing
+                Console_Main.rt_footer.SelectionStart = Console_Main.rt_footer.Text.Length
+                Console_Main.rt_footer.ScrollToCaret()
             Case 4
                 ' Clear header and main
-                Console_Main.rt_header.Text = Nothing
-                Console_Main.rt_maintext.Text = Nothing
+                Console_Main.rt_header.SelectionStart = Console_Main.rt_header.Text.Length
+                Console_Main.rt_header.ScrollToCaret()
+                Console_Main.rt_maintext.SelectionStart = Console_Main.rt_maintext.Text.Length
+                Console_Main.rt_maintext.ScrollToCaret()
             Case 5
                 ' Clear main and footer
-                Console_Main.rt_maintext.Text = Nothing
-                Console_Main.rt_footer.Text = Nothing
+                Console_Main.rt_maintext.SelectionStart = Console_Main.rt_maintext.Text.Length
+                Console_Main.rt_maintext.ScrollToCaret()
+                Console_Main.rt_footer.SelectionStart = Console_Main.rt_footer.Text.Length
+                Console_Main.rt_footer.ScrollToCaret()
             Case 6
                 ' Clear header and footer
-                Console_Main.rt_header.Text = Nothing
-                Console_Main.rt_footer.Text = Nothing
+                Console_Main.rt_header.SelectionStart = Console_Main.rt_header.Text.Length
+                Console_Main.rt_header.ScrollToCaret()
+                Console_Main.rt_footer.SelectionStart = Console_Main.rt_footer.Text.Length
+                Console_Main.rt_footer.ScrollToCaret()
+        End Select
+    End Sub
+
+    Public Sub Console_Write(RTType As Integer, Text As String)
+        ' Simplifying the need of just typing Console_Main.rt_blabla.Text += blabla
+        ' And to just make writing more convenient.
+        ' It also checks whether the header or footer is visible or not
+        Select Case RTType
+            Case 1
+                If Console_Main.rt_header.Visible = True Then
+                    Console_Main.rt_header.Text += Text
+                End If
+            Case 2
+                If Console_Main.rt_maintext.Visible = True Then
+                    Console_Main.rt_maintext.Text += Text
+                End If
+            Case 3
+                If Console_Main.rt_footer.Visible = True Then
+                    Console_Main.rt_footer.Text += Text
+                End If
         End Select
     End Sub
 End Module

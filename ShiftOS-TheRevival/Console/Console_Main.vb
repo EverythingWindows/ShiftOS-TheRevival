@@ -11,6 +11,11 @@
         ' Changing the overall fontface is TBD
         C_TextSize = 11
         C_TextStyle = New FontFamily("Consolas")
+        ' This one is to test the functionality of Console_ShowX()
+        Console_ShowHeader(True)
+        Console_ShowFooter(True)
+        ' This one is to test the ability to change the foreground and/or background color
+        Console_ColorFooter(Color.Red, Color.Black)
         ' This is to check either the console is in a debug state or nah
         If Console_IsDebuged = True Then
             p_Debug.Visible = True
@@ -22,8 +27,8 @@
             C_DF_SwitchMode()
         End If
         ' This is to test the writing text using the futurely designed
-        ' Console_Write() sub, might wanna implement this later
-        rt_maintext.Text += "user@shiftos $>"
+        ' Console_Write() sub, I already implemented this?
+        Console_Write(2, "user@shiftos $> ")
         Console_Focus(1)
     End Sub
 
@@ -32,7 +37,7 @@
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
-        Console_Typeface.ChangeFace(Nothing, ComboBox2.SelectedText)
+        ChangeFace(Nothing, ComboBox2.SelectedText)
     End Sub
 
     Private Sub b_MultiLangTest_Click(sender As Object, e As EventArgs) Handles b_MultiLangTest.Click

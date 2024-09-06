@@ -54,8 +54,4 @@
         Console_Main.Show()
         Close()
     End Sub
-
-    'Private Sub MouseEnter_2(sender As Object, e As EventArgs) Handles Label2.MouseEnter
-
-    'End Sub
 End Class
