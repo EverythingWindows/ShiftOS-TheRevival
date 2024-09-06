@@ -1,5 +1,6 @@
 ﻿Module Console_DebugFunctions
     Public Console_IsFullscreen As Boolean = False
+    Public Console_IsDebuged As Boolean = True                              ' Remember to turn this to False if you want to release the build
 
     Public Sub C_DF_SwitchMode()
         ' Switching the console window state to either windowed mode
@@ -33,5 +34,6 @@
             Case Else
 
         End Select
+        Console_Focus(1)
     End Sub
 End Module

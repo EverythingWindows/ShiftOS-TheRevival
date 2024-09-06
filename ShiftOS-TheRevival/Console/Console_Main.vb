@@ -11,6 +11,20 @@
         ' Changing the overall fontface is TBD
         C_TextSize = 11
         C_TextStyle = New FontFamily("Consolas")
+        ' This is to check either the console is in a debug state or nah
+        If Console_IsDebuged = True Then
+            p_Debug.Visible = True
+            Console_IsFullscreen = True
+            C_DF_SwitchMode()
+        Else
+            p_Debug.Visible = False
+            Console_IsFullscreen = False
+            C_DF_SwitchMode()
+        End If
+        ' This is to test the writing text using the futurely designed
+        ' Console_Write() sub, might wanna implement this later
+        rt_maintext.Text += "user@shiftos $>"
+        Console_Focus(1)
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged

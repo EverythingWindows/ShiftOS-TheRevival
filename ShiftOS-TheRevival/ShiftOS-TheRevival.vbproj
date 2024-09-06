@@ -10,7 +10,7 @@
     <AssemblyVersion>0.0.1.4</AssemblyVersion>
     <FileVersion>0.0.1.4</FileVersion>
     <IncrementVersionOnBuild>4.yyyy.Mdd.Hmm</IncrementVersionOnBuild>
-    <Version>4.2024.905.2251</Version>
+    <Version>4.2024.906.753</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

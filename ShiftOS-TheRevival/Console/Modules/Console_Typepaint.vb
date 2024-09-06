@@ -1,4 +1,5 @@
 ﻿Imports System.Drawing
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Module Console_Typepaint
     Public Sub Console_NewLine(NewString As String, RTType As String)
@@ -34,6 +35,41 @@ Module Console_Typepaint
             Case 1
                 ' Clear just main
                 Console_Main.rt_maintext.Text = Nothing
+            Case 2
+                ' Clear just header
+                Console_Main.rt_header.Text = Nothing
+            Case 3
+                ' Clear just footer
+                Console_Main.rt_footer.Text = Nothing
+            Case 4
+                ' Clear header and main
+                Console_Main.rt_header.Text = Nothing
+                Console_Main.rt_maintext.Text = Nothing
+            Case 5
+                ' Clear main and footer
+                Console_Main.rt_maintext.Text = Nothing
+                Console_Main.rt_footer.Text = Nothing
+            Case 6
+                ' Clear header and footer
+                Console_Main.rt_header.Text = Nothing
+                Console_Main.rt_footer.Text = Nothing
+        End Select
+    End Sub
+
+    Public Sub Console_Focus(Type As Integer)
+        ' The focus function has several configs using the Type integer to
+        ' choose whether only main text, with or without header, and/or
+        ' with or without footer
+        Select Case Type
+            Case 0
+                ' Clear All
+                Console_Main.rt_header.Text = Nothing
+                Console_Main.rt_maintext.Text = Nothing
+                Console_Main.rt_footer.Text = Nothing
+            Case 1
+                ' Clear just main
+                Console_Main.rt_maintext.SelectionStart = Console_Main.rt_maintext.Text.Length
+                Console_Main.rt_maintext.ScrollToCaret()
             Case 2
                 ' Clear just header
                 Console_Main.rt_header.Text = Nothing
