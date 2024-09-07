@@ -11,16 +11,22 @@
         ' Changing the overall fontface is TBD
         C_TextSize = 11
         C_TextStyle = New FontFamily("Consolas")
-        ' This one is to test the functionality of Console_ShowX()
-        Console_ShowHeader(True)
-        Console_ShowFooter(True)
-        ' This one is to test the ability to change the foreground and/or background color
-        Console_ColorFooter(Color.Red, Color.Black)
         ' This is to check either the console is in a debug state or nah
         If Console_IsDebuged = True Then
+            ' If the Console enters the debug state, then it will automatically runs all available debug
+            ' function. If not, then the Console will just directly runs what Terminal supposed to be
             p_Debug.Visible = True
             Console_IsFullscreen = True
             C_DF_SwitchMode()
+            ' This one is to test the functionality of Console_ShowX()
+            Console_ShowHeader(True)
+            Console_ShowFooter(True)
+            ' This one is to test the ability to change the foreground and/or background color
+            Console_ColorHeader(Color.White, Color.FromArgb(12, 55, 69))
+            Console_ColorFooter(Color.Black, Color.Red)
+            ' The code below will test the ability to display more that one line for the header and footer
+            Console_SetHeader(3)
+            Console_SetFooter(2)
         Else
             p_Debug.Visible = False
             Console_IsFullscreen = False

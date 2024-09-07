@@ -24,6 +24,7 @@ Partial Class Console_Main
     Private Sub InitializeComponent()
         rt_maintext = New RichTextBox()
         p_Debug = New Panel()
+        Button1 = New Button()
         ComboBox2 = New ComboBox()
         cb_Lang = New ComboBox()
         ComboBox1 = New ComboBox()
@@ -31,7 +32,6 @@ Partial Class Console_Main
         b_ToggleFS = New Button()
         rt_header = New RichTextBox()
         rt_footer = New RichTextBox()
-        Button1 = New Button()
         p_Debug.SuspendLayout()
         SuspendLayout()
         ' 
@@ -42,9 +42,9 @@ Partial Class Console_Main
         rt_maintext.Dock = DockStyle.Fill
         rt_maintext.Font = New Font("Consolas", 11F, FontStyle.Regular, GraphicsUnit.Point)
         rt_maintext.ForeColor = Color.White
-        rt_maintext.Location = New Point(0, 16)
+        rt_maintext.Location = New Point(0, 18)
         rt_maintext.Name = "rt_maintext"
-        rt_maintext.Size = New Size(800, 418)
+        rt_maintext.Size = New Size(800, 414)
         rt_maintext.TabIndex = 0
         rt_maintext.Text = ""
         ' 
@@ -61,6 +61,15 @@ Partial Class Console_Main
         p_Debug.Name = "p_Debug"
         p_Debug.Size = New Size(342, 212)
         p_Debug.TabIndex = 1
+        ' 
+        ' Button1
+        ' 
+        Button1.Location = New Point(5, 94)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(121, 23)
+        Button1.TabIndex = 3
+        Button1.Text = "multicolor text"
+        Button1.UseVisualStyleBackColor = True
         ' 
         ' ComboBox2
         ' 
@@ -117,7 +126,7 @@ Partial Class Console_Main
         rt_header.Location = New Point(0, 0)
         rt_header.Name = "rt_header"
         rt_header.ScrollBars = RichTextBoxScrollBars.None
-        rt_header.Size = New Size(800, 16)
+        rt_header.Size = New Size(800, 18)
         rt_header.TabIndex = 0
         rt_header.Text = ""
         ' 
@@ -128,21 +137,12 @@ Partial Class Console_Main
         rt_footer.Dock = DockStyle.Bottom
         rt_footer.Font = New Font("Consolas", 11F, FontStyle.Regular, GraphicsUnit.Point)
         rt_footer.ForeColor = Color.Black
-        rt_footer.Location = New Point(0, 434)
+        rt_footer.Location = New Point(0, 432)
         rt_footer.Name = "rt_footer"
         rt_footer.ScrollBars = RichTextBoxScrollBars.None
-        rt_footer.Size = New Size(800, 16)
+        rt_footer.Size = New Size(800, 18)
         rt_footer.TabIndex = 2
         rt_footer.Text = ""
-        ' 
-        ' Button1
-        ' 
-        Button1.Location = New Point(5, 94)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(121, 23)
-        Button1.TabIndex = 3
-        Button1.Text = "multicolor text"
-        Button1.UseVisualStyleBackColor = True
         ' 
         ' Console_Main
         ' 

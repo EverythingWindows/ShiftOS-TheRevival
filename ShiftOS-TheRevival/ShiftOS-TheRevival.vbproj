@@ -4,13 +4,13 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <RootNamespace>ShiftOS_TheRevival</RootNamespace>
-    <StartupObject>Sub Main</StartupObject>
+    <StartupObject>ShiftOS_TheRevival.My.MyApplication</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
     <AssemblyVersion>0.0.1.4</AssemblyVersion>
     <FileVersion>0.0.1.4</FileVersion>
     <IncrementVersionOnBuild>4.yyyy.Mdd.Hmm</IncrementVersionOnBuild>
-    <Version>4.2024.906.1110</Version>
+    <Version>4.2024.907.721</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -44,6 +44,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>xx.resx</DependentUpon>
     </Compile>
+    <Compile Update="MainMenu\Resources\Sound.Designer.vb">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Sound.resx</DependentUpon>
+    </Compile>
     <Compile Update="My Project\Application.Designer.vb">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -76,6 +81,11 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>xx.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainMenu\Resources\Sound.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Sound.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="My Project\Resources.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>

@@ -36,4 +36,18 @@
             Console_Main.rt_footer.BackColor = Back
         End If
     End Sub
+
+    Public Sub Console_SetHeader(Height As Integer)
+        If Height <= 3 Then
+            C_Header_Height = Height
+            Console_Main.rt_header.Height = (C_TextSize + 7) * Height
+        End If
+    End Sub
+
+    Public Sub Console_SetFooter(Height As Integer)
+        If Height <= 2 Then
+            C_Footer_Height = Height
+            Console_Main.rt_footer.Height = (C_TextSize + 7) * Height
+        End If
+    End Sub
 End Module
