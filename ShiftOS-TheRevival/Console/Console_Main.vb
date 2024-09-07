@@ -31,6 +31,8 @@
             p_Debug.Visible = False
             Console_IsFullscreen = False
             C_DF_SwitchMode()
+            Console_ShowHeader(False)
+            Console_ShowFooter(False)
         End If
         ' This is to test the writing text using the futurely designed
         ' Console_Write() sub, I already implemented this?
