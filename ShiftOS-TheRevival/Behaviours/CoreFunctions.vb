@@ -1,4 +1,7 @@
-﻿Imports System.Media
+﻿Imports System.IO
+Imports System.Media
+Imports System.Resources
+Imports System.Resoures
 
 Module CoreFunctions
     Private ReadOnly Co_SoundPlayers As New Dictionary(Of String, SoundPlayer)
@@ -10,9 +13,35 @@ Module CoreFunctions
 
         Select Case Lang
             Case "en"
-                ' My.Resources.xx = My.Resources.en
+                Core_WriteLang(Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(Application.StartupPath)), "Lang\en.resx"))
             Case "id"
         End Select
+    End Sub
+
+    Public Sub Core_WriteLang(SourceLang As String)
+        ' The following code still needs to be audited because I can't figure out
+        ' how to extract the lang file to the program output folder
+
+        ' Read all string resources from the source file
+        Dim LangStrings As New Dictionary(Of String, String)
+        Using ResxReader As New ResXResourceReader(SourceLang)
+            For Each entry As DictionaryEntry In ResxReader
+                If TypeOf entry.Value Is String Then
+                    LangStrings.Add(entry.Key.ToString(), entry.Value.ToString())
+                End If
+            Next
+        End Using
+
+        ' Get the path to the project's resource file
+        Dim ProjectDir = Path.GetDirectoryName(Path.GetDirectoryName(Application.StartupPath))
+        Dim ResxPath = Path.Combine(ProjectDir, "Lang\xx.resx")
+
+        ' Write strings to the destination file
+        Using ResxWriter As New ResXResourceWriter(ResxPath)
+            For Each kvp As KeyValuePair(Of String, String) In LangStrings
+                ResxWriter.AddResource(kvp.Key, kvp.Value)
+            Next
+        End Using
     End Sub
 
     Public Sub Core_PlaySound(SoundName As String, SoundResource As IO.UnmanagedMemoryStream)

@@ -50,4 +50,12 @@
             Console_Main.rt_footer.Height = (C_TextSize + 7) * Height
         End If
     End Sub
+
+    Public Sub Console_ToggleReadOnly()
+        If Console_Main.rt_maintext.ReadOnly = True Then
+            Console_Main.rt_maintext.ReadOnly = False
+        Else
+            Console_Main.rt_maintext.ReadOnly = True
+        End If
+    End Sub
 End Module

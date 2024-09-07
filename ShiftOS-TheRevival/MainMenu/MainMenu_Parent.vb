@@ -1,6 +1,8 @@
 ﻿Imports System.Media
 
 Public Class MainMenu_Parent
+    Private Property IsValidMouseButton As Boolean
+
     Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' This function is to check the game language and
         ' Applying it across all game components
@@ -15,7 +17,7 @@ Public Class MainMenu_Parent
         '
         ' Looking for better code solution
         Dim WhichLabel As Label = CType(sender, Label)
-        WhichLabel.Font = New Font("Segoe UI", 16)
+        WhichLabel.Font = New Font("Consolas", 16)
         WhichLabel.ForeColor = Color.LightGreen
         ' Adding the sound effect to the Core_PlaySound field, this actually has better memory management than the one below
         'My.Computer.Audio.Play(My.Resources.Sound.MainMenu_Hover2, AudioPlayMode.Background)
@@ -45,23 +47,37 @@ Public Class MainMenu_Parent
         lbl_itemDesc.Text = My.Resources.en.MainMenu_ItemDescBlank
     End Sub
 
-    Private Sub ClickAnyObject(sender As Object, e As EventArgs) Handles lbl_StartGame.Click, lbl_LoadGame.Click, lbl_Settings.Click, lbl_About.Click, lbl_Exit.Click
+    Private Sub ClickAnyObject(sender As Object, e As MouseEventArgs) Handles lbl_StartGame.Click, lbl_LoadGame.Click, lbl_Settings.Click, lbl_About.Click, lbl_Exit.Click
         'My.Computer.Audio.Play(My.Resources.Sound.MainMenu_Click, AudioPlayMode.Background)
-        Core_PlaySound("MainMenu_Click", My.Resources.Sound.MainMenu_Click)
+
+        ' The following If is available to make sure if the mouse button is Left or not.
+        ' If Left, then go ahead
+        If e.Button = MouseButtons.Left Then
+            IsValidMouseButton = True
+            Core_PlaySound("MainMenu_Click", My.Resources.Sound.MainMenu_Click)
+        Else
+            IsValidMouseButton = False
+        End If
     End Sub
 
     Private Sub Open_Settings(sender As Object, e As EventArgs) Handles lbl_Settings.Click
-        ' Shows the ShiftOS Main Menu Settings form
-        MainMenu_Settings.ShowDialog()
+        If IsValidMouseButton = True Then
+            ' Shows the ShiftOS Main Menu Settings form
+            MainMenu_Settings.ShowDialog()
+        End If
     End Sub
 
     Private Sub Terminate_Game(sender As Object, e As EventArgs) Handles lbl_Exit.Click
-        ' Closing the application
-        Close()
+        If IsValidMouseButton = True Then
+            ' Closing the application
+            Close()
+        End If
     End Sub
 
     Private Sub lbl_StartGame_Click(sender As Object, e As EventArgs) Handles lbl_StartGame.Click
-        Console_Main.Show()
-        Close()
+        If IsValidMouseButton = True Then
+            Console_Main.Show()
+            Close()
+        End If
     End Sub
 End Class
