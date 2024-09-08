@@ -38,6 +38,7 @@
     End Sub
 
     Public Sub Console_SetHeader(Height As Integer)
+        ' To set the header to between 1 to 3.
         If Height <= 3 Then
             C_Header_Height = Height
             Console_Main.rt_header.Height = (C_TextSize + 7) * Height
@@ -45,6 +46,7 @@
     End Sub
 
     Public Sub Console_SetFooter(Height As Integer)
+        ' To set the header to between 1 and 2.
         If Height <= 2 Then
             C_Footer_Height = Height
             Console_Main.rt_footer.Height = (C_TextSize + 7) * Height
@@ -52,6 +54,7 @@
     End Sub
 
     Public Sub Console_ToggleReadOnly()
+        ' Toggling either the Console is readonly or writeable
         If Console_Main.rt_maintext.ReadOnly = True Then
             Console_Main.rt_maintext.ReadOnly = False
         Else

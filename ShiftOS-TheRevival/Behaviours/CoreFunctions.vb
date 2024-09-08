@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports System.Media
 Imports System.Resources
-Imports System.Resoures
+' Imports System.Resoures
 
 Module CoreFunctions
     Private ReadOnly Co_SoundPlayers As New Dictionary(Of String, SoundPlayer)

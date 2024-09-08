@@ -60,10 +60,23 @@ Public Class MainMenu_Parent
         End If
     End Sub
 
+    Private Sub lbl_StartGame_Click(sender As Object, e As EventArgs) Handles lbl_StartGame.Click
+        If IsValidMouseButton = True Then
+            Console_Main.Show()
+            Close()
+        End If
+    End Sub
+
     Private Sub Open_Settings(sender As Object, e As EventArgs) Handles lbl_Settings.Click
         If IsValidMouseButton = True Then
             ' Shows the ShiftOS Main Menu Settings form
             MainMenu_Settings.ShowDialog()
+        End If
+    End Sub
+
+    Private Sub Open_About(sender As Object, e As EventArgs) Handles lbl_About.Click
+        If IsValidMouseButton = True Then
+            MainMenu_About.ShowDialog()
         End If
     End Sub
 
@@ -74,10 +87,5 @@ Public Class MainMenu_Parent
         End If
     End Sub
 
-    Private Sub lbl_StartGame_Click(sender As Object, e As EventArgs) Handles lbl_StartGame.Click
-        If IsValidMouseButton = True Then
-            Console_Main.Show()
-            Close()
-        End If
-    End Sub
+
 End Class
