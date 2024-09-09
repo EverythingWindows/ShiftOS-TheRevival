@@ -1,8 +1,6 @@
 ﻿Public Class Console_Main
     Implements IShortcutHandlerR
 
-    Public SecureType As String = ""
-
     Private Sub ToggleFS() Handles b_ToggleFS.Click
         ' To test Console to function in Fullscreen or Windowed Mode
         ' Still in testing, since Terminal still needs to be in fullscreen anyway
@@ -87,17 +85,21 @@
             Case "Ctrl+Alt+A"
                 Console_Write(1, "SecureType Activated")
                 Console_SecureType()
+            Case "Enter"
+                If C_IsSecureTypeEnabled = True Then
+                    Core_CaptureSecureType()
+                End If
         End Select
     End Sub
 
     Private Sub rt_maintext_TextChanged(sender As Object, e As EventArgs) Handles rt_maintext.TextChanged
         If C_IsSecureTypeEnabled = True Then
             ' Check if text was added (not removed)
-            If rt_maintext.TextLength > 0 AndAlso rt_maintext.Text.Length > SecureType.Length Then
+            If rt_maintext.TextLength > 0 AndAlso rt_maintext.Text.Length > C_SecureType.Length Then
                 ' Get the last character
                 Dim lastChar As Char = rt_maintext.Text.Chars(rt_maintext.TextLength - 1)
                 ' Append to SecureType
-                SecureType += lastChar
+                C_SecureType += lastChar
                 ' Replace last character *
                 rt_maintext.Text = rt_maintext.Text.Substring(0, rt_maintext.TextLength - 1) & "*"
                 ' Move cursor to end

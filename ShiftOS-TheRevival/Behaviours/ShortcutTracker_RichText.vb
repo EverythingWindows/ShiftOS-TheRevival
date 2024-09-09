@@ -3,7 +3,7 @@
 Module ShortcutTracker_RichText
     Public Shortcuts As New Dictionary(Of Keys, String)                             ' Dictionary of what shortcuts that can be used to trigger some functions
     Public SubjectRichText As New Dictionary(Of RichTextBox, IShortcutHandlerR)     ' This one makes a dictionary of textboxs that will use this module
-    Public LastTriggeredShortcut As String = ""                                     ' To keep track of what shortcut was triggered last time in order to not trigger it again
+    Public LastTriggeredShortcut As String = "F69"                                  ' To keep track of what shortcut was triggered last time in order to not trigger it again
     Public LastTriggerTime As Date = Date.MinValue                                  ' This one is for keeping track of how many miliseconds
     Public Const CooldownMs As Integer = 250                                        ' Cooldown time is in miliseconds
 
@@ -11,6 +11,7 @@ Module ShortcutTracker_RichText
         Core_AddKeybind_Textbox(Keys.Control Or Keys.F, "Ctrl+F")                   ' Placeholder shortcut to test the functionality
         Core_AddKeybind_Textbox(Keys.Menu Or Keys.Alt, "Alt")                       ' This one acts as a placeholder too
         Core_AddKeybind_Textbox(Keys.Control Or Keys.Alt Or Keys.A, "Ctrl+Alt+A")   ' To test the SecureType
+        Core_AddKeybind_Textbox(Keys.Return, "Enter")                               ' To handle the SecureType handle
         If Console_IsDebuged = True Then                                            ' Debug purpose
             Console_NewLine("Keybind has started", "main")
         End If
@@ -61,24 +62,49 @@ Module ShortcutTracker_RichText
             Dim CurrentTime = Date.Now
             ' Defining the total of miliseconds of delay between the current and the last keystroke pressed
             Dim ElapsedMS = (CurrentTime - LastTriggerTime).TotalMilliseconds
-            ' Checking if the shortcut is what's listed or the time has passed beyond the cooldown
-            If CurrentShortxut <> LastTriggeredShortcut OrElse elapsedMs >= CooldownMs Then
-                If Console_IsDebuged = True Then
-                    ' Debug purpose
-                    Console_NewLine($"ShortcutTracker: Shortcut detected - {Shortcuts(key)}", "main")
+            ' To check if the keystroke is Enter (this one is for SecureType only)
+            ' might gonna use Select Case to include Backspace
+            If CurrentShortxut = "Enter" Then
+                ' Checking if the shortcut is what's listed or the time has passed beyond the cooldown
+                If CurrentShortxut <> LastTriggeredShortcut Then
+                    If Console_IsDebuged = True Then
+                        ' Debug purpose
+                        'Console_NewLine($"ShortcutTracker: Shortcut detected - {Shortcuts(key)}", "main")
+                    End If
+                    Dim textBox = TryCast(sender, RichTextBox)
+                    If textBox IsNot Nothing AndAlso SubjectRichText.ContainsKey(textBox) Then
+                        ' To run the shortcut trigger based on what shortcut is pressed
+                        SubjectRichText(textBox).RunShortcut(Shortcuts(key))
+                        ' Define the last triggered shortcut
+                        LastTriggeredShortcut = CurrentShortxut
+                        ' Define the last triggered time
+                        LastTriggerTime = CurrentTime
+                        ' To know that the EventArgs is already handled
+                        e.Handled = True
+                        ' To know that the key has been surpressed until further notice
+                        e.SuppressKeyPress = True
+                    End If
                 End If
-                Dim textBox = TryCast(sender, RichTextBox)
-                If textBox IsNot Nothing AndAlso SubjectRichText.ContainsKey(textBox) Then
-                    ' To run the shortcut trigger based on what shortcut is pressed
-                    SubjectRichText(textBox).RunShortcut(Shortcuts(key))
-                    ' Define the last triggered shortcut
-                    LastTriggeredShortcut = CurrentShortxut
-                    ' Define the last triggered time
-                    LastTriggerTime = CurrentTime
-                    ' To know that the EventArgs is already handled
-                    e.Handled = True
-                    ' To know that the key has been surpressed until further notice
-                    e.SuppressKeyPress = True
+            Else
+                ' Checking if the shortcut is what's listed or the time has passed beyond the cooldown
+                If CurrentShortxut <> LastTriggeredShortcut OrElse ElapsedMS >= CooldownMs Then
+                    If Console_IsDebuged = True Then
+                        ' Debug purpose
+                        'Console_NewLine($"ShortcutTracker: Shortcut detected - {Shortcuts(key)}", "main")
+                    End If
+                    Dim textBox = TryCast(sender, RichTextBox)
+                    If textBox IsNot Nothing AndAlso SubjectRichText.ContainsKey(textBox) Then
+                        ' To run the shortcut trigger based on what shortcut is pressed
+                        SubjectRichText(textBox).RunShortcut(Shortcuts(key))
+                        ' Define the last triggered shortcut
+                        LastTriggeredShortcut = CurrentShortxut
+                        ' Define the last triggered time
+                        LastTriggerTime = CurrentTime
+                        ' To know that the EventArgs is already handled
+                        e.Handled = True
+                        ' To know that the key has been surpressed until further notice
+                        e.SuppressKeyPress = True
+                    End If
                 End If
             End If
         Else

@@ -73,4 +73,10 @@ Module CoreFunctions
         ' Clearing all the last time the sound plays in order to not double the sound
         Co_lastPlayTimes.Clear()
     End Sub
+
+    Public Sub Core_CaptureSecureType()
+        Console_SecureType()
+        Console_NewLine($"The SecureType you enterred is {C_SecureType}", "main")
+        C_SecureType = Nothing
+    End Sub
 End Module
