@@ -39,7 +39,7 @@
         End If
         ' Add this form into the ShortcutTracker list of forms opening
         ShortcutTracker_RichText.Initialize()
-        ShortcutTracker_RIchText.RegisterTextBox(rt_maintext, Me)
+        ShortcutTracker_RichText.Core_RegisterTextBox(rt_maintext, Me)
         'ShortcutTracker.Core_AddKeybind(Keys.Control Or Keys.Q, "Ctrl+Q")
         ' This is to test the writing text using the futurely designed
         ' Console_Write() sub, I already implemented this?
@@ -96,16 +96,12 @@
             If rt_maintext.TextLength > 0 AndAlso rt_maintext.Text.Length > SecureType.Length Then
                 ' Get the last character
                 Dim lastChar As Char = rt_maintext.Text.Chars(rt_maintext.TextLength - 1)
-
                 ' Append to SecureType
                 SecureType += lastChar
-
-                ' Replace last character with asterisk
+                ' Replace last character *
                 rt_maintext.Text = rt_maintext.Text.Substring(0, rt_maintext.TextLength - 1) & "*"
-
                 ' Move cursor to end
-                rt_maintext.SelectionStart = rt_maintext.TextLength
-
+                Console_Focus(1)
                 lbl_SecureType.Text += lastChar
             End If
         End If

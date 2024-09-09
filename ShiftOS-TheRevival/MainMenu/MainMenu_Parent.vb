@@ -76,6 +76,7 @@ Public Class MainMenu_Parent
 
     Private Sub Open_About(sender As Object, e As EventArgs) Handles lbl_About.Click
         If IsValidMouseButton = True Then
+            ' Shows the About form
             MainMenu_About.ShowDialog()
         End If
     End Sub

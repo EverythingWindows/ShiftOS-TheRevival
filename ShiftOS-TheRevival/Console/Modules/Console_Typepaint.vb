@@ -65,7 +65,7 @@ Module Console_Typepaint
         ' with or without footer
         Select Case Type
             Case 0
-                ' Clear All
+                ' Focus All
                 Console_Main.rt_header.SelectionStart = Console_Main.rt_header.Text.Length
                 Console_Main.rt_header.ScrollToCaret()
                 Console_Main.rt_maintext.SelectionStart = Console_Main.rt_maintext.Text.Length
@@ -73,31 +73,31 @@ Module Console_Typepaint
                 Console_Main.rt_footer.SelectionStart = Console_Main.rt_footer.Text.Length
                 Console_Main.rt_footer.ScrollToCaret()
             Case 1
-                ' Clear just main
+                ' Focus just main
                 Console_Main.rt_maintext.SelectionStart = Console_Main.rt_maintext.Text.Length
                 Console_Main.rt_maintext.ScrollToCaret()
             Case 2
-                ' Clear just header
+                ' Focus just header
                 Console_Main.rt_header.SelectionStart = Console_Main.rt_header.Text.Length
                 Console_Main.rt_header.ScrollToCaret()
             Case 3
-                ' Clear just footer
+                ' Focus just footer
                 Console_Main.rt_footer.SelectionStart = Console_Main.rt_footer.Text.Length
                 Console_Main.rt_footer.ScrollToCaret()
             Case 4
-                ' Clear header and main
+                ' Focus header and main
                 Console_Main.rt_header.SelectionStart = Console_Main.rt_header.Text.Length
                 Console_Main.rt_header.ScrollToCaret()
                 Console_Main.rt_maintext.SelectionStart = Console_Main.rt_maintext.Text.Length
                 Console_Main.rt_maintext.ScrollToCaret()
             Case 5
-                ' Clear main and footer
+                ' Focus main and footer
                 Console_Main.rt_maintext.SelectionStart = Console_Main.rt_maintext.Text.Length
                 Console_Main.rt_maintext.ScrollToCaret()
                 Console_Main.rt_footer.SelectionStart = Console_Main.rt_footer.Text.Length
                 Console_Main.rt_footer.ScrollToCaret()
             Case 6
-                ' Clear header and footer
+                ' Focus header and footer
                 Console_Main.rt_header.SelectionStart = Console_Main.rt_header.Text.Length
                 Console_Main.rt_header.ScrollToCaret()
                 Console_Main.rt_footer.SelectionStart = Console_Main.rt_footer.Text.Length
@@ -129,11 +129,13 @@ Module Console_Typepaint
     End Sub
 
     Public Sub Console_SecureType()
+        ' Toggling either to enable the censoring of text input into * or not
+        ' This works whenever there's a security feature within the game
         If C_IsSecureTypeEnabled = True Then
             C_IsSecureTypeEnabled = False
         Else
             C_IsSecureTypeEnabled = True
-            Console_Main.lbl_SecureType.Text = Nothing
+            Console_Main.lbl_SecureType.Text = Nothing                  ' Debug purpose
         End If
     End Sub
 End Module
