@@ -12,12 +12,15 @@ Module Console_Typepaint
                 ' Header only limits the line to 3
                 ' Future limitation code will be implemented in the future
                 Console_Main.rt_header.Text = Console_Main.rt_header.Text & Environment.NewLine & NewString
+                Console_Focus(0)
             Case "main"
                 Console_Main.rt_maintext.Text = Console_Main.rt_maintext.Text & Environment.NewLine & NewString
+                Console_Focus(0)
             Case "footer"
                 ' Header only limits the line to 2
                 ' Future limitation code will be implemented in the future
                 Console_Main.rt_footer.Text = Console_Main.rt_footer.Text & Environment.NewLine & NewString
+                Console_Focus(0)
         End Select
     End Sub
 
@@ -110,14 +113,17 @@ Module Console_Typepaint
             Case 1
                 If Console_Main.rt_header.Visible = True Then
                     Console_Main.rt_header.Text += Text
+                    Console_Focus(0)
                 End If
             Case 2
                 If Console_Main.rt_maintext.Visible = True Then
                     Console_Main.rt_maintext.Text += Text
+                    Console_Focus(0)
                 End If
             Case 3
                 If Console_Main.rt_footer.Visible = True Then
                     Console_Main.rt_footer.Text += Text
+                    Console_Focus(0)
                 End If
         End Select
     End Sub

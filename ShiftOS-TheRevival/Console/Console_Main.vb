@@ -1,4 +1,5 @@
 ﻿Public Class Console_Main
+    Implements IShortcutHandlerR
 
     Private Sub ToggleFS() Handles b_ToggleFS.Click
         ' To test Console to function in Fullscreen or Windowed Mode
@@ -34,9 +35,14 @@
             Console_ShowHeader(False)
             Console_ShowFooter(False)
         End If
+        ' Add this form into the ShortcutTracker list of forms opening
+        ShortcutTracker_RichText.Initialize()
+        ShortcutTracker_RIchText.RegisterTextBox(rt_maintext, Me)
+        'ShortcutTracker.Core_AddKeybind(Keys.Control Or Keys.Q, "Ctrl+Q")
         ' This is to test the writing text using the futurely designed
         ' Console_Write() sub, I already implemented this?
-        Console_Write(2, "user@shiftos $> ")
+        'Console_Write(2, "user@shiftos $> ")            ' This will be used if the debug mode is not enabled
+        Console_NewLine("user@shiftos $> ", "main")
         Console_Focus(1)
     End Sub
 
@@ -53,5 +59,31 @@
         ' resource directory. I am planning to do expand the support in the future
         Global_GameLang = cb_Lang.SelectedItem
         C_MultiLangTest()
+    End Sub
+
+    Private Sub Console_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        Console_NewLine("{Me.Name} - {e.KeyCode} has been pressed", "main")
+    End Sub
+
+    'Public Sub RunShortcut(shortcutName As String) Implements IShortcutHandler.RunShortcut
+    '    Console_NewLine("{Me.Name} - {e.KeyData} has been pressed", "main")
+    '    Select Case shortcutName
+    '        Case "Ctrl+F"
+    '            Console_NewLine("Hooray!", "rt_maintext")
+    '        Case "Alt"
+    '            Console_NewLine("Alt is alting", "rt_maintext")
+    '    End Select
+    'End Sub
+
+    Public Sub RunShortcut(shortcutName As String) Implements IShortcutHandlerR.RunShortcut
+        ' Console_NewLine($"{Me.Name} - {e.KeyData} has been pressed", "main")
+        Select Case shortcutName
+            Case "Ctrl+F"
+                Console_NewLine("Hooray!", "main")
+            Case "Alt"
+                Console_NewLine("Alt is alting", "main")
+            Case "Ctrl+Alt+A"
+                Console_NewLine("ALTING!", "main")
+        End Select
     End Sub
 End Class

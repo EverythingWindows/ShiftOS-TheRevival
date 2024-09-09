@@ -32,6 +32,7 @@ Partial Class MainMenu_Settings
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.ForeColor = Color.White
         Label1.Location = New Point(26, 18)
         Label1.Name = "Label1"
         Label1.Size = New Size(106, 32)
@@ -42,6 +43,7 @@ Partial Class MainMenu_Settings
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point)
+        Label2.ForeColor = Color.White
         Label2.Location = New Point(26, 84)
         Label2.Name = "Label2"
         Label2.Size = New Size(41, 20)
@@ -70,6 +72,7 @@ Partial Class MainMenu_Settings
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.Black
         ClientSize = New Size(359, 336)
         Controls.Add(Button1)
         Controls.Add(ComboBox1)

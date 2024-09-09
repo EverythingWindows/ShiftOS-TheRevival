@@ -105,6 +105,7 @@ Partial Class MainMenu_About
         Controls.Add(Label1)
         Controls.Add(lbl_Build)
         Controls.Add(lbl_OK)
+        FormBorderStyle = FormBorderStyle.FixedSingle
         Name = "MainMenu_About"
         ShowInTaskbar = False
         StartPosition = FormStartPosition.CenterScreen
