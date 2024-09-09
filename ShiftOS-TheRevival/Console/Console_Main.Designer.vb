@@ -24,6 +24,7 @@ Partial Class Console_Main
     Private Sub InitializeComponent()
         rt_maintext = New RichTextBox()
         p_Debug = New Panel()
+        lbl_SecureType = New Label()
         lbl_keystroke = New Label()
         Button1 = New Button()
         ComboBox2 = New ComboBox()
@@ -54,6 +55,7 @@ Partial Class Console_Main
         ' p_Debug
         ' 
         p_Debug.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        p_Debug.Controls.Add(lbl_SecureType)
         p_Debug.Controls.Add(lbl_keystroke)
         p_Debug.Controls.Add(Button1)
         p_Debug.Controls.Add(ComboBox2)
@@ -65,6 +67,15 @@ Partial Class Console_Main
         p_Debug.Name = "p_Debug"
         p_Debug.Size = New Size(342, 212)
         p_Debug.TabIndex = 1
+        ' 
+        ' lbl_SecureType
+        ' 
+        lbl_SecureType.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        lbl_SecureType.Location = New Point(8, 148)
+        lbl_SecureType.Name = "lbl_SecureType"
+        lbl_SecureType.Size = New Size(320, 39)
+        lbl_SecureType.TabIndex = 5
+        lbl_SecureType.Text = "SecureType text"
         ' 
         ' lbl_keystroke
         ' 
@@ -187,4 +198,5 @@ Partial Class Console_Main
     Friend WithEvents cb_Lang As ComboBox
     Friend WithEvents Button1 As Button
     Friend WithEvents lbl_keystroke As Label
+    Friend WithEvents lbl_SecureType As Label
 End Class

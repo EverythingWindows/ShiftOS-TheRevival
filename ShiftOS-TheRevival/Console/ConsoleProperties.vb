@@ -6,5 +6,6 @@
     Public Property C_Header_Height As Integer                      ' The value is then multiplied by the font size (Max 3)
     Public Property C_Footer_Height As Integer                      ' The value is then multiplied by the font size (Max 2)
     Public Property C_CurrentApp As String                          ' Get to know what app is using the Console so that Console doesn't always have to run Terminal
+    Public Property C_IsSecureTypeEnabled As Boolean
 
 End Module

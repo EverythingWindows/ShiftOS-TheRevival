@@ -127,4 +127,13 @@ Module Console_Typepaint
                 End If
         End Select
     End Sub
+
+    Public Sub Console_SecureType()
+        If C_IsSecureTypeEnabled = True Then
+            C_IsSecureTypeEnabled = False
+        Else
+            C_IsSecureTypeEnabled = True
+            Console_Main.lbl_SecureType.Text = Nothing
+        End If
+    End Sub
 End Module

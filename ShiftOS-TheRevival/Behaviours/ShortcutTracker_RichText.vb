@@ -44,7 +44,6 @@ Module ShortcutTracker_RIchText
     End Sub
 
     Private Sub HandleKeyDown(sender As Object, e As KeyEventArgs)
-        ' Console_NewLine($"ShortcutTracker: Key pressed - {e.KeyData}", "main")
         Console_Main.lbl_keystroke.Text = $"{e.KeyData}"
         Dim key As Keys = e.KeyData
         If Shortcuts.ContainsKey(key) Then
