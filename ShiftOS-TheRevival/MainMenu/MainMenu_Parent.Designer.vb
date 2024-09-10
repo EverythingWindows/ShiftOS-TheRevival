@@ -163,7 +163,6 @@ Partial Class MainMenu_Parent
         MaximizeBox = False
         Name = "MainMenu_Parent"
         ShowIcon = False
-        ShowInTaskbar = False
         StartPosition = FormStartPosition.CenterScreen
         Text = "MainMenu"
         ResumeLayout(False)
