@@ -8,8 +8,10 @@ Module ShortcutTracker_RichText
     Public Const CooldownMs As Integer = 250                                        ' Cooldown time is in miliseconds
 
     Public Sub Initialize()
-        Core_AddKeybind_Textbox(Keys.Control Or Keys.F, "Ctrl+F")                   ' Placeholder shortcut to test the functionality
-        Core_AddKeybind_Textbox(Keys.Menu Or Keys.Alt, "Alt")                       ' This one acts as a placeholder too
+        If Console_IsDebuged = True Then
+            Core_AddKeybind_Textbox(Keys.Control Or Keys.F, "Ctrl+F")               ' Placeholder shortcut to test the functionality
+            Core_AddKeybind_Textbox(Keys.Menu Or Keys.Alt, "Alt")                   ' This one acts as a placeholder too
+        End If
         Core_AddKeybind_Textbox(Keys.Control Or Keys.Alt Or Keys.A, "Ctrl+Alt+A")   ' To test the SecureType
         Core_AddKeybind_Textbox(Keys.Return, "Enter")                               ' To handle the SecureType handle
         'If Console_IsDebuged = True Then                                            ' Debug purpose
