@@ -62,7 +62,7 @@
     End Sub
 
     Private Sub Console_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        Console_NewLine("{Me.Name} - {e.KeyCode} has been pressed", "main")
+        'Console_NewLine("{Me.Name} - {e.KeyCode} has been pressed", "main")
     End Sub
 
     'Public Sub RunShortcut(shortcutName As String) Implements IShortcutHandler.RunShortcut
@@ -93,6 +93,7 @@
     End Sub
 
     Private Sub rt_maintext_TextChanged(sender As Object, e As EventArgs) Handles rt_maintext.TextChanged
+        ' To check if the SecureType is enabled or not
         If C_IsSecureTypeEnabled = True Then
             ' Check if text was added (not removed)
             If rt_maintext.TextLength > 0 AndAlso rt_maintext.Text.Length > C_SecureType.Length Then
@@ -104,6 +105,7 @@
                 rt_maintext.Text = rt_maintext.Text.Substring(0, rt_maintext.TextLength - 1) & "*"
                 ' Move cursor to end
                 Console_Focus(1)
+                ' Debug purpose
                 lbl_SecureType.Text += lastChar
             End If
         End If

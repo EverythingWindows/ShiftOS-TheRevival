@@ -12,16 +12,16 @@ Module ShortcutTracker_RichText
         Core_AddKeybind_Textbox(Keys.Menu Or Keys.Alt, "Alt")                       ' This one acts as a placeholder too
         Core_AddKeybind_Textbox(Keys.Control Or Keys.Alt Or Keys.A, "Ctrl+Alt+A")   ' To test the SecureType
         Core_AddKeybind_Textbox(Keys.Return, "Enter")                               ' To handle the SecureType handle
-        If Console_IsDebuged = True Then                                            ' Debug purpose
-            Console_NewLine("Keybind has started", "main")
-        End If
+        'If Console_IsDebuged = True Then                                            ' Debug purpose
+        '    Console_NewLine("Keybind has started", "main")
+        'End If
     End Sub
 
     Public Sub Core_AddKeybind_Textbox(Keybind As Keys, Name As String)
         Shortcuts(Keybind) = Name
-        If Console_IsDebuged = True Then                                            ' Debug purpose
-            Console_NewLine(Name & " is added to the list", "main")
-        End If
+        'If Console_IsDebuged = True Then                                            ' Debug purpose
+        '    Console_NewLine(Name & " is added to the list", "main")
+        'End If
     End Sub
 
     Public Sub Core_RegisterTextBox(TargetTextBox As RichTextBox, handler As IShortcutHandlerR)
@@ -31,9 +31,9 @@ Module ShortcutTracker_RichText
             SubjectRichText(TargetTextBox) = handler
             ' This one is to add the functionality of Core_HandleKeyDown to the textbox itself
             AddHandler TargetTextBox.KeyDown, AddressOf Core_HandleKeyDown
-            If Console_IsDebuged = True Then
-                Console_NewLine($"ShortcutTracker: Registered RichTextBox", "main") ' Debug purpose
-            End If
+            'If Console_IsDebuged = True Then
+            '    Console_NewLine($"ShortcutTracker: Registered RichTextBox", "main") ' Debug purpose
+            'End If
         End If
     End Sub
 
@@ -43,9 +43,9 @@ Module ShortcutTracker_RichText
             ' This one is to remove the functionality of Core_HandleKeyDown to the textbox itself
             RemoveHandler textBox.KeyDown, AddressOf Core_HandleKeyDown
             SubjectRichText.Remove(textBox)
-            If Console_IsDebuged = True Then                                        ' Debug purpose
-                Console_NewLine($"ShortcutTracker: Unregistered RichTextBox", "main")
-            End If
+            'If Console_IsDebuged = True Then                                        ' Debug purpose
+            '    Console_NewLine($"ShortcutTracker: Unregistered RichTextBox", "main")
+            'End If
         End If
     End Sub
 
@@ -67,14 +67,16 @@ Module ShortcutTracker_RichText
             If CurrentShortxut = "Enter" Then
                 ' Checking if the shortcut is what's listed or the time has passed beyond the cooldown
                 If CurrentShortxut <> LastTriggeredShortcut Then
+                    Dim textBox = TryCast(sender, RichTextBox)
                     If Console_IsDebuged = True Then
                         ' Debug purpose
                         'Console_NewLine($"ShortcutTracker: Shortcut detected - {Shortcuts(key)}", "main")
                     End If
-                    Dim textBox = TryCast(sender, RichTextBox)
                     If textBox IsNot Nothing AndAlso SubjectRichText.ContainsKey(textBox) Then
                         ' To run the shortcut trigger based on what shortcut is pressed
                         SubjectRichText(textBox).RunShortcut(Shortcuts(key))
+                        ' Make a new line
+                        Console_NewLine(Nothing, "main")
                         ' Define the last triggered shortcut
                         LastTriggeredShortcut = CurrentShortxut
                         ' Define the last triggered time

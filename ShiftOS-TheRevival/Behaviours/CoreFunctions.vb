@@ -75,8 +75,11 @@ Module CoreFunctions
     End Sub
 
     Public Sub Core_CaptureSecureType()
+        ' Toggling the SecureType
         Console_SecureType()
+        ' Debug purpose only
         Console_NewLine($"The SecureType you enterred is {C_SecureType}", "main")
-        C_SecureType = Nothing
+        ' Blank out the SecureType to Nothing, but not null
+        C_SecureType = ""
     End Sub
 End Module
