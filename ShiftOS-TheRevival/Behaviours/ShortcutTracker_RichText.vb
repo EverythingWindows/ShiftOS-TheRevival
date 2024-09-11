@@ -12,6 +12,8 @@ Module ShortcutTracker_RichText
             Core_AddKeybind_Textbox(Keys.Control Or Keys.F, "Ctrl+F")               ' Placeholder shortcut to test the functionality
             Core_AddKeybind_Textbox(Keys.Menu Or Keys.Alt, "Alt")                   ' This one acts as a placeholder too
         End If
+        ' Universal Ctrl+Alt+Del for ShiftOS
+        Core_AddKeybind_Textbox(Keys.Control Or Keys.Alt Or Keys.Shift Or Keys.Delete, "Ctrl+Alt+Shift+Delete")
         Core_AddKeybind_Textbox(Keys.Control Or Keys.Alt Or Keys.A, "Ctrl+Alt+A")   ' To test the SecureType
         Core_AddKeybind_Textbox(Keys.Return, "Enter")                               ' To handle the SecureType handle
         'If Console_IsDebuged = True Then                                            ' Debug purpose

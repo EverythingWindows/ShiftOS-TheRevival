@@ -44,6 +44,22 @@ Module CoreFunctions
         End Using
     End Sub
 
+    Public Sub Core_BootOS()
+        If C_IsOpened = False Then
+            Console_Main.Show()
+        End If
+        Console_Clear(0)
+        If IsColdboot = True Then
+            Console_Write(2, "[ShiftKernel] : Cold boot has been initiated")
+            IsColdboot = False
+        Else
+            Console_Write(2, "[ShiftKernel] : Reboot is initiated")
+        End If
+        'Console_Write(2, "user@shiftos $> ")            ' This will be used if the debug mode is not enabled
+        Console_NewLine("user@shiftos $> ", "main")
+        Console_Focus(1)
+    End Sub
+
     Public Sub Core_PlaySound(SoundName As String, SoundResource As IO.UnmanagedMemoryStream)
         ' To check if the sound effect is listed in the dictionary.
         ' If not, the we'll add it to the dictionary for efficient use later
@@ -78,7 +94,7 @@ Module CoreFunctions
         ' Toggling the SecureType
         Console_SecureType()
         ' Debug purpose only
-        Console_NewLine($"The SecureType you enterred is {C_SecureType}", "main")
+        Console_NewLine($"The SecureType you enterred is ""{C_SecureType}""", "main")
         ' Blank out the SecureType to Nothing, but not null
         C_SecureType = ""
     End Sub

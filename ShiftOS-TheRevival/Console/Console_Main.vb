@@ -8,6 +8,7 @@
     End Sub
 
     Private Sub Console_Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        C_IsOpened = True
         ' Setting the font to the saved or default one
         ' Changing the overall fontface is TBD
         C_TextSize = 11
@@ -35,15 +36,11 @@
             Console_ShowHeader(False)
             Console_ShowFooter(False)
         End If
+        ' Coldboot progress for ShiftOS
+        Core_BootOS()
         ' Add this form into the ShortcutTracker list of forms opening
         ShortcutTracker_RichText.Initialize()
         ShortcutTracker_RichText.Core_RegisterTextBox(rt_maintext, Me)
-        'ShortcutTracker.Core_AddKeybind(Keys.Control Or Keys.Q, "Ctrl+Q")
-        ' This is to test the writing text using the futurely designed
-        ' Console_Write() sub, I already implemented this?
-        'Console_Write(2, "user@shiftos $> ")            ' This will be used if the debug mode is not enabled
-        Console_NewLine("user@shiftos $> ", "main")
-        Console_Focus(1)
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
@@ -85,6 +82,11 @@
             Case "Ctrl+Alt+A"
                 Console_Write(1, "SecureType Activated")
                 Console_SecureType()
+            Case "Ctrl+Q"
+                Console_NewLine("Ctrl+Q!", "main")
+            Case "Ctrl+Alt+Shift+Delete"
+                Core_PlaySound("MainMenu_Click", My.Resources.Sound.MainMenu_Click)
+                Core_BootOS()
             Case "Enter"
                 If C_IsSecureTypeEnabled = True Then
                     Core_CaptureSecureType()
@@ -109,5 +111,27 @@
                 lbl_SecureType.Text += lastChar
             End If
         End If
+        '' To check if the SecureType is enabled or not
+        'If C_IsSecureTypeEnabled Then
+        '    ' Check if text was added
+        '    If rt_maintext.TextLength > C_SecureType.Length Then
+        '        ' Get the last character
+        '        Dim lastChar As Char = rt_maintext.Text.Chars(rt_maintext.TextLength - 1)
+        '        ' Append to SecureType
+        '        C_SecureType += lastChar
+        '        ' Replace last character with *
+        '        rt_maintext.Text = New String("*"c, C_SecureType.Length)
+        '        ' Check if text was removed (Backspace pressed)
+        '    ElseIf rt_maintext.TextLength < C_SecureType.Length Then
+        '        ' Remove last character from SecureType
+        '        C_SecureType = C_SecureType.Substring(0, C_SecureType.Length - 1)
+        '        ' Update visible text with correct number of asterisks
+        '        rt_maintext.Text = New String("*"c, C_SecureType.Length)
+        '    End If
+        '    ' Move cursor to end
+        '    Console_Focus(1)
+        '    ' Debug purpose
+        '    lbl_SecureType.Text = C_SecureType
+        'End If
     End Sub
 End Class
